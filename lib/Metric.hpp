@@ -10,6 +10,8 @@ public:
 
 	[[nodiscard]] virtual std::string valueAsString() const = 0;
 
+	virtual void reset() = 0;
+
 	virtual ~IMetric() = default;
 };
 
@@ -23,7 +25,7 @@ public:
 
 	void set(T val) { value_.store(val); }
 
-	void reset() { value_.store(0); }
+	void reset() override { value_.store(0); }
 
 	[[nodiscard]] std::string name() const override { return name_; }
 
