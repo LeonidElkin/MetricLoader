@@ -18,7 +18,7 @@ int main() {
 	for (int i = 1; i <= logs_count_example; ++i) {
 		cpu->set(i * 0.52);
 		http->set(i * 11);
-		std::this_thread::sleep_for(std::chrono::seconds(1));
+		std::this_thread::sleep_for(std::chrono::seconds(2));
 	}
 
 	return 0;
