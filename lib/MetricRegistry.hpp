@@ -1,12 +1,13 @@
 #pragma once
 
 #include "Metric.hpp"
-#include <vector>
 #include <memory>
+#include <vector>
 
 class MetricsRegistry {
 	std::mutex mutex_;
 	std::vector<std::shared_ptr<IMetric>> metrics_;
+
 public:
 	void registerMetric(std::shared_ptr<IMetric> metric) {
 		std::lock_guard<std::mutex> lock(mutex_);
@@ -18,4 +19,3 @@ public:
 		return metrics_;
 	}
 };
-
